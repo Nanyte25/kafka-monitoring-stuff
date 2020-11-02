@@ -1,7 +1,7 @@
 apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosSchedule
 metadata:
-  name: schedule-nginx
+  name: pod-delete-kafka
 spec:
   schedule:
     repeat:
@@ -9,6 +9,7 @@ spec:
          #format should be like "10m" or "2h" accordingly for minutes or hours
         minChaosInterval: "2m"  
   engineTemplateSpec:
+    engineState: active
     appinfo:
       appns: 'kafka-cluster'
       applabel: 'app.kubernetes.io/name=kafka'
